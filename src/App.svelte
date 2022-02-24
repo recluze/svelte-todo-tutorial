@@ -1,5 +1,6 @@
 <script>
 	import Header from './components/Header.svelte'
+	import Form from './components/Form.svelte'
 </script>
 
 <div id="app-container" class="app-container">
@@ -18,29 +19,20 @@
 			</li>
 
 			<li class="todo-list list-item-view completed">
-				<!-- <div class="list-item-view"> -->
 				<span>
-					<button class="btn btn-done"
-						><i class="fa-solid fa-check-square" /></button
-					>
-					<span>First Todo</span>
+					<button class="btn btn-done fa-solid fa-square-check" />
+					<span>Second Todo</span>
 				</span>
 				<button class="btn btn-delete fa-solid fa-trash" />
-				<!-- </div> -->
 			</li>
+
+			
 		</ul>
 	</div>
 
-	<!-- Add form at bottom -->
-	<div class="app-form">
-		<input
-			placeholder="Add Todo.."
-			type="text"
-			class="input-text"
-			name=""
-		/>
-		<button class="btn fa-solid fa-plus" />
-	</div>
+
+	<Form /> 
+	
 </div>
 
 
@@ -70,11 +62,6 @@
 
 	.btn:focus {
 		outline: none;
-	}
-
-	.btn-delete {
-		color: #666;
-		font-size: 0.7em;
 	}
 
 	.app-container {
@@ -116,35 +103,7 @@
 		justify-content: space-between;
 	}
 
-	.app-form {
-		margin-bottom: 10px;
-		display: flex;
-		justify-content: center;
-	}
-
-	.input-text {
-		height: 40px;
-		background: #282c34;
-		font-size: 15px;
-		border: 1px solid #a2a8ad;
-		color: #dce4ec;
-		width: 100%;
-		margin-right: 15px;
-		border-radius: 2em;
-		padding: 5px 10px;
-		transition: border 250ms ease-out;
-	}
-
-	.input-text:focus {
-		border: 1px solid #ffffff;
-		background: #1d2025;
-		outline: none;
-		color: #dce4ec;
-	}
-
-	::placeholder {
-		opacity: 0.3;
-	}
+	
 
 	.completed {
 		color: #6a6f75;
