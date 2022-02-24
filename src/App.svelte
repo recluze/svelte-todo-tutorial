@@ -1,13 +1,10 @@
 <script>
-	export let name;
+	import Header from './components/Header.svelte'
 </script>
 
 <div id="app-container" class="app-container">
-	<!-- Header with information -->
-	<div class="app-header">
-		<div>10 Total</div>
-		<div class="task-count">1 Remaining</div>
-	</div>
+	
+	<Header /> 
 
 	<!-- List of actual todos -->
 	<div class="app-body">
@@ -98,15 +95,7 @@
 		justify-content: space-between;
 	}
 
-	.app-header {
-		padding: 10px;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.task-count {
-		align-self: center;
-	}
+	
 
 	.app-body {
 		flex-grow: 1;
