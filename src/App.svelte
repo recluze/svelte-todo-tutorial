@@ -1,24 +1,24 @@
 <script>
-	import Header from './components/Header.svelte'
-	import TodoList from './components/TodoList.svelte'
-	import Form from './components/Form.svelte'
+	import Header from "./components/Header.svelte";
+	import TodoList from "./components/TodoList.svelte";
+	import Form from "./components/Form.svelte";
+
+	let todos = [
+		{ id: 1, text: "First", completed: false },
+		{ id: 2, text: "Second", completed: true },
+		{ id: 3, text: "Third", completed: true },
+	];
 </script>
 
 <div id="app-container" class="app-container">
-	
-	<Header /> 
+	<Header />
 
-	<TodoList /> 
+	<TodoList todos = { todos } />
 
-	<Form /> 
-	
+	<Form />
 </div>
 
-
-
-
 <style>
-
 	.app-container {
 		width: 400px;
 		min-height: 500px;
@@ -36,5 +36,4 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
-	
 </style>
