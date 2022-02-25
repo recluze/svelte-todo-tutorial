@@ -35,14 +35,22 @@
 		if (newText != "") {
 			let newId = Math.max(...todos.map((e) => e.id)) + 1;
 			todos = [...todos, { id: newId, text: newText, completed: false }];
+			newText = "";
 		}
+	}
+
+	function onDeleted(event) {
+		console.log("Received at top", event.detail);
+		todos = todos.filter((todo) => {
+			return todo.id != event.detail.id;
+		});
 	}
 </script>
 
 <div id="app-container" class="app-container">
 	<Header {totalTodos} {remainingTodos} />
 
-	<TodoList {todos} on:completed={onCompleted} />
+	<TodoList {todos} on:completed={onCompleted} on:deleted={onDeleted} />
 
 	<Form on:created={createdTodo} bind:newText />
 </div>

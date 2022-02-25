@@ -13,6 +13,7 @@
                 itemText={todo.text}
                 completed={todo.completed}
                 on:completed
+                on:deleted
             />
         {/each}
     </ul>
