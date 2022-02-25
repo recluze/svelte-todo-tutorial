@@ -11,12 +11,12 @@
 
 	let remainingTodos;
 	let totalTodos;
+	let newText;
 
 	$: totalTodos = todos.length;
 	$: remainingTodos = todos.reduce((n, todo) => {
 		return n + (todo.completed ? 0 : 1);
 	}, 0);
-	console.log(remainingTodos);
 
 	function onCompleted(event) {
 		console.log("Received at top", event.detail);
@@ -27,6 +27,16 @@
 		// console.log(todos);
 		todos = todos; // reactivity triggered by assignment
 	}
+
+	function createdTodo(event) {
+		console.log("In App created", newText);
+		newText = newText.trim();
+
+		if (newText != "") {
+			let newId = Math.max(...todos.map((e) => e.id)) + 1;
+			todos = [...todos, { id: newId, text: newText, completed: false }];
+		}
+	}
 </script>
 
 <div id="app-container" class="app-container">
@@ -34,7 +44,7 @@
 
 	<TodoList {todos} on:completed={onCompleted} />
 
-	<Form />
+	<Form on:created={createdTodo} bind:newText />
 </div>
 
 <style>
