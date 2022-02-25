@@ -15,8 +15,8 @@
 		todos.map((todo) => {
 			if (todo.id == updateId) todo.completed = !todo.completed;
 		});
-		console.log(todos);
-		todos = todos;
+		// console.log(todos);
+		todos = todos; // reactivity triggered by assignment
 	}
 </script>
 
