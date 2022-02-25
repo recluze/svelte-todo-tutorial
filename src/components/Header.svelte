@@ -1,15 +1,16 @@
-
+<script>
+	export let totalTodos;
+	export let remainingTodos;
+</script>
 
 <!-- Header with information -->
 <div class="app-header">
-    <div>10 Total</div>
-    <div class="task-count">1 Remaining</div>
+	<div>{totalTodos} Total</div>
+	<div class="task-count">{remainingTodos} Remaining</div>
 </div>
 
-
-
 <style>
-    .app-header {
+	.app-header {
 		padding: 10px;
 		display: flex;
 		justify-content: space-between;

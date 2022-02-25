@@ -9,6 +9,15 @@
 		{ id: 3, text: "Third", completed: true },
 	];
 
+	let remainingTodos;
+	let totalTodos;
+
+	totalTodos = todos.length;
+	remainingTodos = todos.reduce((n, todo) => {
+		return n + (todo.completed ? 0 : 1);
+	}, 0);
+	console.log(remainingTodos);
+
 	function onCompleted(event) {
 		console.log("Received at top", event.detail);
 		let updateId = event.detail.id;
@@ -21,7 +30,7 @@
 </script>
 
 <div id="app-container" class="app-container">
-	<Header />
+	<Header {totalTodos} {remainingTodos} />
 
 	<TodoList {todos} on:completed={onCompleted} />
 
