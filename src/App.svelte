@@ -8,12 +8,22 @@
 		{ id: 2, text: "Second", completed: true },
 		{ id: 3, text: "Third", completed: true },
 	];
+
+	function onCompleted(event) {
+		console.log("Received at top", event.detail);
+		let updateId = event.detail.id;
+		todos.map((todo) => {
+			if (todo.id == updateId) todo.completed = !todo.completed;
+		});
+		console.log(todos);
+		todos = todos;
+	}
 </script>
 
 <div id="app-container" class="app-container">
 	<Header />
 
-	<TodoList todos = { todos } />
+	<TodoList {todos} on:completed={onCompleted} />
 
 	<Form />
 </div>

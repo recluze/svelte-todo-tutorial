@@ -1,10 +1,17 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+
     export let itemId;
     export let itemText;
     export let completed;
 
+    const dispatch = createEventDispatcher();
+
     function clickComplete(id) {
         console.log("Clicked complete!", id);
+        dispatch("completed", {
+            id: id,
+        });
     }
 </script>
 
