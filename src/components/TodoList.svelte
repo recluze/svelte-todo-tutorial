@@ -31,5 +31,6 @@
         flex-grow: 1;
         max-height: 600px;
         overflow-x: hidden;
+        overflow: hidden;
     }
 </style>
