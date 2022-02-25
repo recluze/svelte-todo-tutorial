@@ -1,11 +1,21 @@
 <script>
+    export let itemId;
     export let itemText;
-    export let completed; 
+    export let completed;
+
+    function clickComplete(id) {
+        console.log("Clicked complete!", id);
+    }
 </script>
 
-<li class="todo-list list-item-view { completed ? 'completed': ''}">
+<li class="todo-list list-item-view {completed ? 'completed' : ''}">
     <span>
-        <button class="btn btn-done fa-solid { completed ? 'fa-square-check': 'fa-square'}" />
+        <button
+            class="btn btn-done fa-solid {completed
+                ? 'fa-square-check'
+                : 'fa-square'}"
+            on:click={() => clickComplete(itemId)}
+        />
         <span>{itemText}</span>
     </span>
     <button class="btn btn-delete fa-solid fa-trash" />

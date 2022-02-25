@@ -1,14 +1,18 @@
 <script>
     import Todo from "./Todo.svelte";
 
-    export let todos; 
+    export let todos;
 </script>
 
 <!-- List of actual todos -->
 <div class="app-body">
     <ul>
         {#each todos as todo}
-            <Todo itemText ={todo.text} completed = {todo.completed} />
+            <Todo
+                itemId={todo.id}
+                itemText={todo.text}
+                completed={todo.completed}
+            />
         {/each}
     </ul>
 </div>
