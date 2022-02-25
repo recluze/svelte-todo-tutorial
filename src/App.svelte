@@ -12,8 +12,8 @@
 	let remainingTodos;
 	let totalTodos;
 
-	totalTodos = todos.length;
-	remainingTodos = todos.reduce((n, todo) => {
+	$: totalTodos = todos.length;
+	$: remainingTodos = todos.reduce((n, todo) => {
 		return n + (todo.completed ? 0 : 1);
 	}, 0);
 	console.log(remainingTodos);
